@@ -17,11 +17,14 @@ This project provides a complete pipeline for fine-tuning multimodal models (Gem
 ## 📁 Project Structure
 
 ### 🎯 Core Training Scripts
-| Script | Description | Model Support | Link | Local Path |
-|--------|-------------|---------------|------|----------------|
-| **`sft_trainer_gemma3_from_json.py`** | Fine-tuning script for Gemma 3 models | Gemma 3 (4B/27B) | [🔗 View Script](./code/training/sft_trainer_gemma3_from_json.py) | `./code/training/`<br>`sft_trainer_gemma3_from_json.py` |
-| **`sft_trainer_mistral_from_json.py`** | Fine-tuning script for Mistral models | Mistral (24B) | [🔗 View Script](./code/training/sft_trainer_mistral_from_json.py) | `./code/training/`<br>`sft_trainer_mistral_from_json.py` |
-| **`merge_mistral.py`** | LoRA weight merging script for Mistral3 | Mistral (24B) | [🔗 View Script](./code/training/merge_mistral.py) | `./code/training/`<br>`merge_mistral.py` |
+
+```
+code/
+└── training/
+    ├── sft_trainer_gemma3_from_json.py    # Fine-tuning script for Gemma 3 models (4B/27B)
+    ├── sft_trainer_mistral_from_json.py   # Fine-tuning script for Mistral models (24B)
+    └── merge_mistral.py                   # LoRA weight merging script for Mistral3
+```
 
 > 💡 **Note**: Both scripts feature a custom `build_collator` for image processing adapted from [TRL's sft_vlm_gemma3.py](https://github.com/huggingface/trl/blob/v0.21.0/examples/scripts/sft_vlm_gemma3.py)
 
@@ -42,13 +45,24 @@ This project provides a complete pipeline for fine-tuning multimodal models (Gem
 > 🚨 **Important**: Mistral3 users must run the merge step separately after training to combine LoRA weights with the base model for inference.
 
 ### 📊 Evaluation Scripts
-| Script | Purpose | Dataset | Link | Local Path |
-|--------|---------|---------|------|----------------|
-| **`mintrec_evaluation_vllm_flashtopic.py`** | Comprehensive evaluation using vLLM | MIntRec 2.0 | [🔗 View Script](./code/evaluation/mintrec_evaluation_vllm_flashtopic.py) | `./code/evaluation/`<br>`mintrec_evaluation_vllm_flashtopic.py` |
-| **`agnews_evaluation_vllm_flashtopic.py`** | AG News classification evaluation | AG News | [🔗 View Script](./code/evaluation/agnews_evaluation_vllm_flashtopic.py) | `./code/evaluation/`<br>`agnews_evaluation_vllm_flashtopic.py` |
-| **`amazon_reviews_evaluation_vllm_flashtopic.py`** | Amazon Reviews sentiment evaluation | Amazon Reviews | [🔗 View Script](./code/evaluation/amazon_reviews_evaluation_vllm_flashtopic.py) | `./code/evaluation/`<br>`amazon_reviews_evaluation_vllm_flashtopic.py` |
-| **`dbpedia_evaluation_vllm_flashtopic.py`** | DBpedia classification evaluation | DBpedia | [🔗 View Script](./code/evaluation/dbpedia_evaluation_vllm_flashtopic.py) | `./code/evaluation/`<br>`dbpedia_evaluation_vllm_flashtopic.py` |
-| **`sst2_evaluation_vllm_flashtopic.py`** | SST-2 sentiment evaluation | SST-2 | [🔗 View Script](./code/evaluation/sst2_evaluation_vllm_flashtopic.py) | `./code/evaluation/`<br>`sst2_evaluation_vllm_flashtopic.py` |
+
+```
+code/
+└── evaluation/
+    ├── mintrec_evaluation_vllm_flashtopic.py      # Comprehensive evaluation using vLLM (MIntRec 2.0)
+    ├── agnews_evaluation_vllm_flashtopic.py       # AG News classification evaluation
+    ├── amazon_reviews_evaluation_vllm_flashtopic.py  # Amazon Reviews sentiment evaluation
+    ├── dbpedia_evaluation_vllm_flashtopic.py      # DBpedia classification evaluation
+    └── sst2_evaluation_vllm_flashtopic.py         # SST-2 sentiment evaluation
+```
+
+### 🔧 Data Processing Scripts
+
+```
+code/
+└── data_processing/
+    └── vlm_data/
+```
 
 ---
 
