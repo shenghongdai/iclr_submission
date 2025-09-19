@@ -98,43 +98,6 @@ This project supports both **multimodal datasets** and **text-only classificatio
 
 ---
 
-## 🏷️ Topic Classification Categories
-
-### 📰 AG News Topics (4 types)
-- `World` - World news and international events
-- `Sports` - Sports news and athletic events
-- `Business` - Business and financial news
-- `Science/Technology` - Science and technology news
-
-### 📝 Sentiment Analysis Topics (2 types)
-- `Positive` - Positive sentiment reviews
-- `Negative` - Negative sentiment reviews
-
-### 🏛️ DBpedia Topics (14 types)
-- `Company` - Corporate entities
-- `EducationalInstitution` - Schools and universities
-- `Artist` - Creative individuals
-- `Athlete` - Sports professionals
-- `OfficeHolder` - Political officials
-- `MeanOfTransportation` - Vehicles and transport
-- `Building` - Architectural structures
-- `NaturalPlace` - Geographic locations
-- `Village` - Small settlements
-- `Animal` - Living creatures
-- `Plant` - Botanical entities
-- `Album` - Music collections
-- `Film` - Cinematic works
-- `WrittenWork` - Literary pieces
-
-### 🎯 Intent Recognition Topics (30 types)
-- `Acknowledge`, `Advise`, `Agree`, `Apologise`, `Arrange`
-- `Ask for help`, `Asking for opinions`, `Care`, `Comfort`, `Complain`
-- `Confirm`, `Criticize`, `Doubt`, `Emphasize`, `Explain`
-- `Flaunt`, `Greet`, `Inform`, `Introduce`, `Invite`
-- `Joke`, `Leave`, `Oppose`, `Plan`, `Praise`
-- `Prevent`, `Refuse`, `Taunt`, `Thank`, `Warn`
-
----
 
 ## 🚀 Quick Start
 
