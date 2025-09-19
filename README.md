@@ -28,22 +28,6 @@ code/
 
 > 💡 **Note**: Both scripts feature a custom `build_collator` for image processing adapted from [TRL's sft_vlm_gemma3.py](https://github.com/huggingface/trl/blob/v0.21.0/examples/scripts/sft_vlm_gemma3.py)
 
-### 🔄 Key Differences: Mistral-3 vs Gemma-3 Finetuning
-
-#### **Mistral-3 (Untied Architecture)**
-- **Weight Tying**: ❌ **No weight tying** - `embed_tokens` and `lm_head` are separate
-- **LoRA Config**: Uses `modules_to_save=["embed_tokens", "lm_head"]` to make embeddings trainable
-- **Merge Step**: ⚠️ **Requires separate merge step** using `merge_mistral.py` after training
-- **Final Model**: LoRA weights remain separate, need explicit merging
-
-#### **Gemma-3 (Tied Architecture)**  
-- **Weight Tying**: ✅ **Uses weight tying** - `model.tie_weights()` connects embeddings
-- **LoRA Config**: No `modules_to_save`, embeddings automatically trainable via weight tying
-- **Merge Step**: ✅ **Automatic merging** during training with `trainer.model.merge_and_unload()`
-- **Final Model**: LoRA weights automatically merged into base model
-
-> 🚨 **Important**: Mistral-3 users must run the merge step separately after training to combine LoRA weights with the base model for inference.
-
 ### 📊 Evaluation Scripts
 
 ```
