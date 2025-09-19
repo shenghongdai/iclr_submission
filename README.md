@@ -49,19 +49,6 @@ code/
 
 ---
 
-## 🤖 Supported Models
-
-<div align="center">
-
-| Model | Parameters | Modalities | Performance |
-|-------|------------|------------|-------------|
-| [`google/gemma-3-4b-it`](https://huggingface.co/google/gemma-3-4b-it) | **4B** | Text/Image/Video | ⭐⭐⭐⭐ |
-| [`google/gemma-3-27b-it`](https://huggingface.co/google/gemma-3-27b-it) | **27B** | Text/Image/Video | ⭐⭐⭐⭐⭐ |
-| [`mistralai/Mistral-Small-3.1-24B-Instruct-2503`](https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503) | **24B** | Text/Image/Video | ⭐⭐⭐⭐ |
-
-</div>
-
----
 
 ## 📊 Training Datasets
 
