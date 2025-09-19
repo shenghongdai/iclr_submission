@@ -196,38 +196,4 @@ pip install trl bitsandbytes
 
 ---
 
-## 🚨 Important Notes
-
-### ⚠️ Memory Optimization
-- **Reduce `--grad_accum` from 16 to 8** if you encounter OOM issues
-- **Monitor GPU memory** during training
-
-### 🛑 Early Stopping
-Early stopping parameters are critical for optimal training:
-- `early_stopping_patience=8` - stops training if no improvement for 8 evaluations
-- `early_stopping_threshold=1e-4` - minimum improvement threshold
-- **Adjust these based on your dataset size and training stability**
-
-### 🔄 Mistral-3 Merge Requirements
-- **Mistral-3 requires explicit LoRA merging** after training using `merge_mistral.py`
-- **Without merging, the model cannot be used for inference**
-- **The merge step combines LoRA weights with the base model**
-- **Update paths in `merge_mistral.py` before running** (BASE_MODEL, PEFT_DIR, OUT_DIR)
-
----
-
-## 📊 Key Insights
-
-### ✅ **Strengths**
-- **High Accuracy**: Models achieve excellent performance on text classification tasks
-- **Fast Processing**: Under 0.2 seconds for most models
-- **Scalable**: 27B models handle complex tasks with high accuracy
-- **Multimodal Support**: Effective text and image processing capabilities
-
-### ⚠️ **Limitations**
-- **4B Model Complexity**: Smaller models may struggle with very complex multimodal tasks
-- **Multimodal Training**: Requires careful balance between modalities
-- **Dataset Dependency**: Performance varies based on training data quality and diversity
-
----
 
