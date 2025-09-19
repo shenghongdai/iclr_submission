@@ -168,28 +168,10 @@ python3 mintrec_evaluation_vllm_flashtopic.py \
   --use_video 
 ```
 
-#### 📰 Option 2: AG News Classification Evaluation
+#### 📊 Text Classification Evaluation
 ```bash
-python3 agnews_evaluation_vllm_flashtopic.py \
-  --data_path ./ag_news_data \
-  --model_path ./your_finetuned_model
-```
-
-#### 📝 Option 3: Amazon Reviews Sentiment Evaluation
-```bash
-python3 amazon_reviews_evaluation_vllm_flashtopic.py \
-  --model_path ./your_finetuned_model
-```
-
-#### 🏛️ Option 4: DBpedia Classification Evaluation
-```bash
-python3 dbpedia_evaluation_vllm_flashtopic.py \
-  --model_path ./your_finetuned_model
-```
-
-#### 📊 Option 5: SST-2 Sentiment Evaluation
-```bash
-python3 sst2_evaluation_vllm_flashtopic.py \
+# AG News, Amazon Reviews, DBpedia, SST-2 evaluations
+python3 [dataset]_evaluation_vllm_flashtopic.py \
   --model_path ./your_finetuned_model
 ```
 
