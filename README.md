@@ -3,7 +3,7 @@
 
 ## 🎯 Project Overview
 
-This project provides a complete pipeline for fine-tuning multimodal models (Gemma 3, Mistral) on various datasets for topic classification. Our models can classify conversation topics from both **text** and **image/video** inputs, achieving state-of-the-art performance on multimodal intent recognition tasks.
+This repository contains the official code for our ICLR 2026 submission. We introduce a unified framework that reduces classification to a **single-token generation** problem. By fine-tuning decoder-style LLMs (Gemma 3, Mistral 3) with LoRA and atomic label tokens, our models achieve **O(1) latency** and state-of-the-art accuracy on challenging multimodal benchmarks.
 
 ### ✨ Key Features
 - 🎥 **Multimodal Support**: Text, image, and video processing capabilities
@@ -174,8 +174,6 @@ python3 mintrec_evaluation_vllm_flashtopic.py \
 python3 [dataset]_evaluation_vllm_flashtopic.py \
   --model_path ./your_finetuned_model
 ```
-
-> ⚠️ **Note**: Update `MODEL_PATH` in the scripts before running
 
 ---
 
