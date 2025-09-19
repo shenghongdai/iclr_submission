@@ -26,7 +26,6 @@ code/
     └── merge_mistral.py                   # LoRA weight merging script for Mistral-3
 ```
 
-> 💡 **Note**: Both scripts feature a custom `build_collator` for image processing adapted from [TRL's sft_vlm_gemma3.py](https://github.com/huggingface/trl/blob/v0.21.0/examples/scripts/sft_vlm_gemma3.py)
 
 ### 📊 Evaluation Scripts
 
