@@ -84,31 +84,6 @@ This project supports both **multimodal datasets** and **text-only classificatio
 
 ---
 
-## 📈 Performance Results
-
-
-### 🧠 Multimodal Topic Classification (MIntRec 2.0)
-
-<div align="center">
-
-| Model | Modalities | Accuracy | P50 Latency | P95 Latency | Status |
-|-------|------------|----------|-------------|-------------|---------|
-| **Gemma3 4B** | Text/Image/Video | 16.04% | 1.33s | 1.77s | 🟡 Base |
-| **Gemma3 27B** | Text/Image/Video | 17.76% | 2.18s | 2.77s | 🟡 Base |
-| **GPT-4o** | Text/Image/Video | 43.68% | 4.30s | 6.12s | 🟡 External |
-| **GPT-5-nano** | Text/Image/Video | 41.02% | 3.67s | 5.46s | 🟡 External |
-| **GPT-5** | Text/Image/Video | 51.84% | 7.13s | 13.01s | 🟡 External |
-| **Mistral3 24B (FT multimodal+text)** | Text/Image/Video | 43.09% | 0.64s | 1.64s | 🟢 Fine-tuned |
-| **Gemma3 4B (FT text)** | Text/Image/Video | 25.09% | 0.25s | 0.59s | 🟢 Fine-tuned |
-| **Gemma3 4B (FT multimodal)** | Text/Image/Video | **55.19%** | 0.26s | 0.60s | 🟢 Fine-tuned |
-| **Gemma3 4B (FT multimodal+text)** | Text/Image/Video | 32.37% | 0.26s | 0.59s | 🟢 Fine-tuned |
-| **Gemma3 12B (FT multimodal+text)** | Text/Image/Video | 35.42% | 0.28s | 0.71s | 🟢 Fine-tuned |
-| **Gemma3 27B (FT multimodal)** | Text/Image/Video | **62.72%** | 0.37s | 0.90s | 🟢 Fine-tuned |
-| **Gemma3 27B (FT multimodal+text)** | Text/Image/Video | 44.27% | 0.36s | 0.88s | 🟢 Fine-tuned |
-
-</div>
-
-
 ## 🏷️ Topic Classification Categories
 
 ### 📰 AG News Topics (4 types)
