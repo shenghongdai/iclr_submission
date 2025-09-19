@@ -23,26 +23,26 @@ code/
 └── training/
     ├── sft_trainer_gemma3_from_json.py    # Fine-tuning script for Gemma 3 models (4B/27B)
     ├── sft_trainer_mistral_from_json.py   # Fine-tuning script for Mistral models (24B)
-    └── merge_mistral.py                   # LoRA weight merging script for Mistral3
+    └── merge_mistral.py                   # LoRA weight merging script for Mistral-3
 ```
 
 > 💡 **Note**: Both scripts feature a custom `build_collator` for image processing adapted from [TRL's sft_vlm_gemma3.py](https://github.com/huggingface/trl/blob/v0.21.0/examples/scripts/sft_vlm_gemma3.py)
 
-### 🔄 Key Differences: Mistral3 vs Gemma3 Finetuning
+### 🔄 Key Differences: Mistral-3 vs Gemma-3 Finetuning
 
-#### **Mistral3 (Untied Architecture)**
+#### **Mistral-3 (Untied Architecture)**
 - **Weight Tying**: ❌ **No weight tying** - `embed_tokens` and `lm_head` are separate
 - **LoRA Config**: Uses `modules_to_save=["embed_tokens", "lm_head"]` to make embeddings trainable
 - **Merge Step**: ⚠️ **Requires separate merge step** using `merge_mistral.py` after training
 - **Final Model**: LoRA weights remain separate, need explicit merging
 
-#### **Gemma3 (Tied Architecture)**  
+#### **Gemma-3 (Tied Architecture)**  
 - **Weight Tying**: ✅ **Uses weight tying** - `model.tie_weights()` connects embeddings
 - **LoRA Config**: No `modules_to_save`, embeddings automatically trainable via weight tying
 - **Merge Step**: ✅ **Automatic merging** during training with `trainer.model.merge_and_unload()`
 - **Final Model**: LoRA weights automatically merged into base model
 
-> 🚨 **Important**: Mistral3 users must run the merge step separately after training to combine LoRA weights with the base model for inference.
+> 🚨 **Important**: Mistral-3 users must run the merge step separately after training to combine LoRA weights with the base model for inference.
 
 ### 📊 Evaluation Scripts
 
@@ -99,13 +99,22 @@ This project supports both **multimodal datasets** and **text-only classificatio
 ---
 
 
+## 🧪 Results (Highlight)
+
+- **MIntRec 2.0**: Fine-tuned **Gemma-3-27B** achieves **62.7% accuracy** with **P95 < 1s** tail latency.
+- Text benchmarks (SST-2, Amazon, AG News, DBpedia): competitive accuracy with **5–8× lower tail latency** than strong APIs.
+
+👉 See the paper for full tables and plots.
+
+---
+
 ## 🚀 Quick Start
 
 ### 1️⃣ Training 
-#### **Gemma3 Training**
+#### **Gemma-3 Training**
 
 ```bash
-# For Gemma3 4B model
+# For Gemma-3 4B model
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 ACCELERATE_LOG_LEVEL=info accelerate launch \
   --config_file ./configs/multi_gpu_deepspeed3.yaml \
   --num_processes 8 \
@@ -115,7 +124,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 ACCELERATE_LOG_LEVEL=info accelerate launch
   --json_path ./vlm_data/combined_control_updated_nested.json \
   --output_dir ./runs_sft_gemma3_4b_full_fast
 
-# For Gemma3 27B model
+# For Gemma-3 27B model
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 ACCELERATE_LOG_LEVEL=info accelerate launch \
   --config_file ./configs/multi_gpu_deepspeed3.yaml \
   --num_processes 8 \
@@ -127,7 +136,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 ACCELERATE_LOG_LEVEL=info accelerate launch
   --grad_accum 8
 ```
 
-#### **Mistral3 Training + Merge Step**
+#### **Mistral-3 Training + Merge Step**
 
 ```bash
 # Step 1: Training
@@ -139,11 +148,11 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 ACCELERATE_LOG_LEVEL=info accelerate launch
   --json_path ./vlm_data/combined_control_updated_nested.json \
   --output_dir ./runs_sft_mistral3_24b_full_fast
 
-# Step 2: Merge LoRA weights (REQUIRED for Mistral3)
+# Step 2: Merge LoRA weights (REQUIRED for Mistral-3)
 python3 merge_mistral.py
 ```
 
-> ⚠️ **Critical for Mistral3**: The merge step is mandatory after training to combine LoRA weights with the base model. Without merging, the model won't work for inference.
+> ⚠️ **Critical for Mistral-3**: The merge step is mandatory after training to combine LoRA weights with the base model. Without merging, the model won't work for inference.
 
 ### 📁 **Fine-tuned Model Locations**
 
@@ -151,9 +160,9 @@ Trained models are saved in the following local directories:
 
 | Model | Local Path |
 |-------|------------|
-| **Gemma3 4B** | `./runs_sft_gemma3_4b_full_fast/final_checkpoint` |
-| **Gemma3 27B** | `./runs_sft_gemma3_27b_full_fast/final_checkpoint` |
-| **Mistral3 24B** | `./merged_mistral24b_full_fast/` |
+| **Gemma-3 4B** | `./runs_sft_gemma3_4b_full_fast/final_checkpoint` |
+| **Gemma-3 27B** | `./runs_sft_gemma3_27b_full_fast/final_checkpoint` |
+| **Mistral-3 24B** | `./merged_mistral24b_full_fast/` |
 
 > 💡 **Note**: Use these paths when running evaluation scripts or deploying models for inference.
 
@@ -229,8 +238,8 @@ Early stopping parameters are critical for optimal training:
 - `early_stopping_threshold=1e-4` - minimum improvement threshold
 - **Adjust these based on your dataset size and training stability**
 
-### 🔄 Mistral3 Merge Requirements
-- **Mistral3 requires explicit LoRA merging** after training using `merge_mistral.py`
+### 🔄 Mistral-3 Merge Requirements
+- **Mistral-3 requires explicit LoRA merging** after training using `merge_mistral.py`
 - **Without merging, the model cannot be used for inference**
 - **The merge step combines LoRA weights with the base model**
 - **Update paths in `merge_mistral.py` before running** (BASE_MODEL, PEFT_DIR, OUT_DIR)
