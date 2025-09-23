@@ -1,4 +1,4 @@
-# 🚀 LaaC: LLM as a Classifier for Multimodal Topic Classification
+# LLM as a Classifier: Leveraging Large Language Models for Text and Vision Classification
 
 [![Hugging Face Models](https://img.shields.io/badge/🤗%20Hugging%20Face-Models-blue)](https://huggingface.co/LaaC)
 
@@ -21,10 +21,10 @@ Our fine-tuned models are now available on Hugging Face! You can directly use th
 
 ### 🎯 Available Models
 
-| Model | Size | Base Model | Hugging Face Link | Performance |
-|-------|------|------------|-------------------|-------------|
-| **MultimodalTopic-27B-Gemma3-Flash** | 27B | Gemma-3-27B | [LaaC/MultimodalTopic-27B-Gemma3-Flash](https://huggingface.co/LaaC/MultimodalTopic-27B-Gemma3-Flash) | 62.7% on MIntRec 2.0 |
-| **MultimodalTopic-24B-Mistral3-Flash** | 24B | Mistral-3-24B | [LaaC/MultimodalTopic-24B-Mistral3-Flash](https://huggingface.co/LaaC/MultimodalTopic-24B-Mistral3-Flash) | Competitive on text benchmarks |
+| Model | Size | Base Model | Hugging Face Link |
+|-------|------|------------|-------------------|
+| **MultimodalTopic-27B-Gemma3-Flash** | 27B | Gemma-3-27B | [LaaC/MultimodalTopic-27B-Gemma3-Flash](https://huggingface.co/LaaC/MultimodalTopic-27B-Gemma3-Flash) |
+| **MultimodalTopic-24B-Mistral3-Flash** | 24B | Mistral-3-24B | [LaaC/MultimodalTopic-24B-Mistral3-Flash](https://huggingface.co/LaaC/MultimodalTopic-24B-Mistral3-Flash) |
 
 ---
 
@@ -86,7 +86,7 @@ This project supports both **multimodal datasets** and **text-only classificatio
 ## 🧪 Results (Highlight)
 
 - **MIntRec 2.0**: Fine-tuned **Gemma-3-27B** achieves **62.7% accuracy** with **P95 < 1s** tail latency.
-- Text benchmarks (SST-2, Amazon, AG News, DBpedia): competitive accuracy with **5–8× lower tail latency** than strong APIs.
+- Text benchmarks (SST-2, Amazon, AG News, DBpedia): competitive accuracy with **8× lower tail latency** than strong APIs.
 
 👉 See the paper for full tables and plots.
 
