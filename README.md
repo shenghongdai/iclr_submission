@@ -1,9 +1,10 @@
-# 🚀 Multimodal Topic Classification Fine-tuning
+# 🚀 LaaC: LLM as a Classifier for Multimodal Topic Classification
 
+[![Hugging Face Models](https://img.shields.io/badge/🤗%20Hugging%20Face-Models-blue)](https://huggingface.co/LaaC)
 
 ## 🎯 Project Overview
 
-This repository contains the official code for our ICLR 2026 submission. We introduce a unified framework that reduces classification to a **single-token generation** problem. By fine-tuning decoder-style LLMs (Gemma 3, Mistral 3) with LoRA and atomic label tokens, our models achieve **O(1) latency** and state-of-the-art accuracy on challenging multimodal benchmarks.
+This repository contains the official code for our ICLR 2026 submission. We introduce **LaaC (LLM as a Classifier)**, a unified framework that reduces classification to a **single-token generation** problem. By fine-tuning decoder-style LLMs (Gemma 3, Mistral 3) with LoRA and atomic label tokens, our models achieve **O(1) latency** and state-of-the-art accuracy on challenging benchmarks.
 
 ### ✨ Key Features
 - 🎥 **Multimodal Support**: Text, image, and video processing capabilities
@@ -11,6 +12,19 @@ This repository contains the official code for our ICLR 2026 submission. We intr
 - 📊 **Comprehensive Evaluation**: Multiple evaluation frameworks and metrics
 - 🔧 **Easy Deployment**: vLLM integration for fast inference
 - 🌍 **Multilingual**: Support for 140+ languages
+
+---
+
+## 🤗 Pre-trained Models
+
+Our fine-tuned models are now available on Hugging Face! You can directly use these models for inference without training.
+
+### 🎯 Available Models
+
+| Model | Size | Base Model | Hugging Face Link | Performance |
+|-------|------|------------|-------------------|-------------|
+| **MultimodalTopic-27B-Gemma3-Flash** | 27B | Gemma-3-27B | [LaaC/MultimodalTopic-27B-Gemma3-Flash](https://huggingface.co/LaaC/MultimodalTopic-27B-Gemma3-Flash) | 62.7% on MIntRec 2.0 |
+| **MultimodalTopic-24B-Mistral3-Flash** | 24B | Mistral-3-24B | [LaaC/MultimodalTopic-24B-Mistral3-Flash](https://huggingface.co/LaaC/MultimodalTopic-24B-Mistral3-Flash) | Competitive on text benchmarks |
 
 ---
 
@@ -124,17 +138,6 @@ python3 merge_mistral.py
 
 > ⚠️ **Critical for Mistral-3**: The merge step is mandatory after training to combine LoRA weights with the base model. Without merging, the model won't work for inference.
 
-### 📁 **Fine-tuned Model Locations**
-
-Trained models are saved in the following local directories:
-
-| Model | Local Path |
-|-------|------------|
-| **Gemma-3 4B** | `./runs_sft_gemma3_4b_full_fast/final_checkpoint` |
-| **Gemma-3 27B** | `./runs_sft_gemma3_27b_full_fast/final_checkpoint` |
-| **Mistral-3 24B** | `./merged_mistral24b_full_fast/` |
-
-> 💡 **Note**: Use these paths when running evaluation scripts or deploying models for inference.
 
 ### 2️⃣ Evaluation
 
