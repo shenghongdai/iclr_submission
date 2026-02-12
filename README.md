@@ -1,4 +1,4 @@
-# LLM as a Classifier: Leveraging Large Language Models for Text and Vision Classification
+# Turning Generative LLMs into Low-Latency and Robust Classifiers
 
 [![Hugging Face Models](https://img.shields.io/badge/🤗%20Hugging%20Face-Models-blue)](https://huggingface.co/LaaC)
 
