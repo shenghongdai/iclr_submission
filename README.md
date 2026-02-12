@@ -4,7 +4,7 @@
 
 ## 🎯 Project Overview
 
-This repository contains the official code for our ICLR 2026 submission. We introduce **LaaC (LLM as a Classifier)**, a unified framework that reduces classification to a **single-token generation** problem. By fine-tuning decoder-style LLMs (Gemma 3, Mistral 3) with LoRA and atomic label tokens, our models achieve **O(1) latency** and state-of-the-art accuracy on challenging benchmarks.
+This repository contains the official code for our our paper. We introduce **LaaC (LLM as a Classifier)**, a unified framework that reduces classification to a **single-token generation** problem. By fine-tuning decoder-style LLMs (Gemma 3, Mistral 3) with LoRA and atomic label tokens, our models achieve **O(1) latency** and state-of-the-art accuracy on challenging benchmarks.
 
 ### ✨ Key Features
 - 🎥 **Multimodal Support**: Text, image, and video processing capabilities
